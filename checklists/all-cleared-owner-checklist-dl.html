@@ -27,12 +27,11 @@
   --hazard: #E2712F;
   --hazard-tint: #362718;
   --surface: #0B0A07;
-  --shadow: rgba(0,0,0,.7);
 }
 
 * { box-sizing: border-box; }
 html, body { margin:0; padding:0; }
-@page { size: 99mm 210mm; margin: 0; }
+@page { size: 210mm 99mm; margin: 0; }
 
 body {
   background: var(--surface);
@@ -41,145 +40,123 @@ body {
 }
 
 .card {
-  width: 99mm;
-  height: 210mm;
+  width: 210mm;
+  height: 99mm;
   background: var(--paper);
   color: var(--ink);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-}
-
-.content {
-  flex: 1;
-  padding: 9mm 8mm 0 8mm;
-  display: flex;
-  flex-direction: column;
+  padding: 7mm 10mm 6mm 10mm;
 }
 
 /* header */
-.logo { display:block; line-height:0; width: 46mm; color: var(--ink); }
+.header-row { display:flex; align-items:center; gap: 10mm; }
+.logo { display:block; line-height:0; width: 40mm; flex: none; color: var(--ink); }
 .logo svg { display:block; width:100%; height:auto; }
 
-.tagline {
-  margin-top: 3mm;
-  font-family: 'Plex Mono', monospace; font-size: 7.6px; letter-spacing:.2em; text-transform:uppercase;
-  color: var(--ink-soft);
-  display:flex; align-items:center; gap: 6px;
-}
-.tagline .divider { width:1px; height:8px; background: var(--hazard); display:inline-block; }
+.header-divider { width:1px; align-self:stretch; background: var(--concrete-line); flex:none; }
 
-.titleblock { margin-top: 7mm; padding-top: 5mm; border-top: 1px solid var(--concrete-line); }
+.titleblock { flex:1; }
 .eyebrow {
-  font-family:'Plex Mono'; font-size:9.5px; letter-spacing:.18em; text-transform:uppercase;
-  color: var(--hazard); margin: 0 0 8px;
+  font-family:'Plex Mono'; font-size:9px; letter-spacing:.18em; text-transform:uppercase;
+  color: var(--hazard); margin: 0 0 3px;
 }
 h1.doc-h {
-  font-family:'Plex Sans Cond'; font-weight:700; font-size: 25px; line-height:1.05;
-  margin: 0 0 8px; text-wrap: balance; color: var(--ink);
+  font-family:'Plex Sans Cond'; font-weight:700; font-size: 22px; line-height:1.02;
+  margin: 0 0 4px; color: var(--ink);
 }
 .summary {
   font-family:'Plex Serif'; font-style:italic; color: var(--ink-soft);
-  font-size: 11.5px; line-height:1.45; margin: 0;
+  font-size: 10.5px; line-height:1.35; margin: 0; max-width: 60ch;
 }
 
-/* sections */
-.section { margin-top: 7mm; }
+.rule { border-top: 1px solid var(--concrete-line); margin: 5mm 0 4mm; }
+
+/* columns */
+.columns { flex:1; display:flex; gap: 0; min-height:0; }
+.col { flex:1; display:flex; flex-direction:column; min-width:0; padding-left: 9mm; border-left: 1px solid var(--concrete-line); }
+.col:first-child { padding-left:0; border-left:none; }
 p.subhead {
-  font-family:'Plex Mono'; font-size:9px; letter-spacing:.13em; text-transform:uppercase;
-  color: var(--concrete); margin: 0 0 9px; padding-top: 0;
+  font-family:'Plex Mono'; font-size:8.3px; letter-spacing:.12em; text-transform:uppercase;
+  color: var(--concrete); margin: 0 0 6px;
 }
 
-.check-item { display:flex; gap: 8px; align-items:flex-start; margin-bottom: 8px; }
+.check-item { display:flex; gap: 6px; align-items:flex-start; margin-bottom: 6px; }
 .checkbox {
-  width: 12px; height:12px; min-width:12px; margin-top:2px;
-  border: 1.4px solid var(--hazard);
+  width: 10px; height:10px; min-width:10px; margin-top:2px;
+  border: 1.3px solid var(--hazard);
 }
-.check-item__body { flex:1; }
+.check-item__body { flex:1; min-width:0; }
 .check-item__label {
-  font-family:'Plex Sans Cond'; font-weight:700; font-size: 12.5px; color: var(--ink);
-  line-height:1.25;
+  font-family:'Plex Sans Cond'; font-weight:700; font-size: 11px; color: var(--ink);
+  line-height:1.22;
 }
 .check-item__label .detail {
-  font-family:'Plex Serif'; font-weight:400; font-size:10.5px; color: var(--ink-soft); font-style:italic;
+  font-family:'Plex Serif'; font-weight:400; font-size:9.3px; color: var(--ink-soft); font-style:italic;
 }
 .subnote {
-  margin: 5px 0 0 20px; padding: 5px 9px;
+  margin: 3px 0 4px 16px; padding: 4px 7px;
   background: var(--hazard-tint); border-left: 2px solid var(--hazard);
-  font-family:'Plex Serif'; font-style:italic; font-size: 9.7px; color: var(--ink);
-  line-height:1.4;
+  font-family:'Plex Serif'; font-style:italic; font-size: 8.6px; color: var(--ink);
+  line-height:1.32;
 }
 
-.note {
-  margin-top: 3px;
-  border: 1px solid var(--concrete-line); border-left: 3px solid var(--hazard);
-  padding: 8px 10px;
+/* bottom */
+.bottom-row { display:flex; gap: 10mm; align-items:stretch; margin-top: 4mm; }
+.fillcol { flex: 0 0 auto; width: 46mm; display:flex; flex-direction:column; justify-content:center; gap: 6mm; }
+.fl { display:flex; flex-direction:column; gap:3px; }
+.fl-label {
+  font-family:'Plex Mono'; font-size:7.6px; letter-spacing:.08em; text-transform:uppercase; color: var(--concrete);
 }
-.note__tag {
-  font-family:'Plex Mono'; font-size:8.6px; letter-spacing:.14em; text-transform:uppercase;
-  color: var(--hazard); display:block; margin-bottom:4px;
-}
-.note p { font-family:'Plex Serif'; font-size:9.8px; line-height:1.42; margin:0; color: var(--ink-soft); }
-.note p strong { color: var(--ink); font-weight:700; font-style: normal; }
-
-/* fill line */
-.fillrow {
-  margin-top: auto;
-  padding-top: 6mm;
-  display:flex; flex-direction:column; gap: 7px;
-}
-.fillrow .fl { display:flex; align-items:baseline; gap: 6px; }
-.fillrow .fl-label {
-  font-family:'Plex Mono'; font-size:8.6px; letter-spacing:.08em; text-transform:uppercase; color: var(--concrete);
-  white-space:nowrap;
-}
-.fillrow .fl-line { flex:1; border-bottom: 1px solid var(--concrete-line); height: 10px; }
-
-.bottom-block { margin-top: auto; padding-top: 6mm; }
+.fl-line { border-bottom: 1px solid var(--concrete-line); height: 8px; }
 
 .callout {
+  flex:1;
   background: var(--hazard-tint); border: 1px solid var(--hazard);
-  padding: 10px 11px; display:flex; flex-direction:column; gap:5px;
+  padding: 7px 12px; display:flex; flex-direction:column; justify-content:center; gap:3px;
 }
 .callout__title {
-  font-family:'Plex Sans Cond'; font-weight:700; font-size:15px; color: var(--hazard);
+  font-family:'Plex Sans Cond'; font-weight:700; font-size:13px; color: var(--hazard);
   margin:0;
 }
-.callout p { font-family:'Plex Serif'; font-size:10px; line-height:1.45; color: var(--ink); margin:0; }
+.callout p { font-family:'Plex Serif'; font-size:9.3px; line-height:1.35; color: var(--ink); margin:0; }
 .callout__contact {
-  font-family:'Plex Mono'; font-size:9px; letter-spacing:.03em; color: var(--ink-soft); margin-top:2px;
+  font-family:'Plex Mono'; font-size:8.6px; letter-spacing:.03em; color: var(--ink-soft); margin-top:2px;
 }
 
 footer.sheetfoot {
   display:flex; justify-content:space-between; align-items:center;
-  padding: 9px 8mm 9mm 8mm; font-family:'Plex Mono'; font-size: 7.6px;
+  padding-top: 3mm; margin-top: 4mm; font-family:'Plex Mono'; font-size: 7.2px;
   letter-spacing:.08em; text-transform:uppercase; color: var(--concrete);
   border-top: 1px solid var(--concrete-line);
-  margin-top: 7mm;
 }
 footer.sheetfoot span.hz { color: var(--hazard); }
 </style>
 </head>
 <body>
 <div class="card">
-  <div class="content">
 
+  <div class="header-row">
     <div class="logo">
       <svg viewBox="0 0 1080 416.38" xmlns="http://www.w3.org/2000/svg">
         <text fill="currentColor" style="font-family:'Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:170.28px;" transform="translate(146.15 248.68)"><tspan x="0" y="0">allclea</tspan><tspan style="letter-spacing:-0.02em" x="522.75" y="0">r</tspan><tspan x="585.92" y="0">ed</tspan></text>
         <rect fill="currentColor" x="352.17" y="279.53" width="350.67" height="12.72"/>
       </svg>
     </div>
-    <div class="tagline"><span>Demolition</span><span class="divider"></span><span>Earthworks</span></div>
-
+    <div class="header-divider"></div>
     <div class="titleblock">
       <p class="eyebrow">Owner Checklist</p>
       <h1 class="doc-h">Before Your Demolition</h1>
       <p class="summary">What needs to be sorted before works can commence &mdash; keep this handy.</p>
     </div>
+  </div>
 
-    <div class="section">
+  <div class="rule"></div>
+
+  <div class="columns">
+    <div class="col">
       <p class="subhead">Your Responsibility</p>
       <div class="check-item">
         <div class="checkbox"></div>
@@ -196,8 +173,8 @@ footer.sheetfoot span.hz { color: var(--hazard); }
       <div class="subnote">If gas bottles are present, ensure they're collected.</div>
     </div>
 
-    <div class="section">
-      <p class="subhead">Arranged by You or All Cleared &mdash; Ask Us</p>
+    <div class="col">
+      <p class="subhead">Can Be Arranged &mdash; Ask Us</p>
       <div class="check-item">
         <div class="checkbox"></div>
         <div class="check-item__body">
@@ -212,7 +189,7 @@ footer.sheetfoot span.hz { color: var(--hazard); }
       </div>
     </div>
 
-    <div class="section">
+    <div class="col">
       <p class="subhead">Don't Forget</p>
       <div class="check-item">
         <div class="checkbox"></div>
@@ -221,22 +198,20 @@ footer.sheetfoot span.hz { color: var(--hazard); }
         </div>
       </div>
     </div>
-
-    <div class="bottom-block">
-      <div class="fillrow">
-        <div class="fl"><span class="fl-label">Contractor booked for</span><span class="fl-line"></span></div>
-        <div class="fl"><span class="fl-label">Demolition date</span><span class="fl-line"></span></div>
-      </div>
-
-      <div class="callout" style="margin-top:6mm;">
-        <p class="callout__title">Questions? Ask us.</p>
-        <p>Happy to help with abolishments, approvals, or booking &mdash; before your demolition even starts.</p>
-        <p class="callout__contact">0467 749 509 &nbsp;&middot;&nbsp; info@allcleared.au</p>
-      </div>
-    </div>
-
   </div>
-  <footer class="sheetfoot"><span>All Cleared <span class="hz">&middot;</span> Owner Checklist</span><span>info@allcleared.au</span></footer>
+
+  <div class="bottom-row">
+    <div class="fillcol">
+      <div class="fl"><span class="fl-label">Contractor booked for</span><span class="fl-line"></span></div>
+      <div class="fl"><span class="fl-label">Demolition date</span><span class="fl-line"></span></div>
+    </div>
+    <div class="callout">
+      <p class="callout__title">Questions? Ask us.</p>
+      <p class="callout__contact">0467 749 509 &nbsp;&middot;&nbsp; info@allcleared.au</p>
+    </div>
+  </div>
+
+  <footer class="sheetfoot"><span>All Cleared <span class="hz">&middot;</span> Owner Checklist</span><span>allcleared.au</span></footer>
 </div>
 </body>
 </html>
