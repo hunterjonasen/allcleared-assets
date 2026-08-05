@@ -102,6 +102,11 @@ p.subhead {
   font-family:'Plex Serif'; font-style:italic; font-size: 8.6px; color: var(--ink);
   line-height:1.32;
 }
+.leadtime {
+  display:block; margin: 2px 0 0 0;
+  font-family:'Plex Mono'; font-size:7.8px; letter-spacing:.08em; text-transform:uppercase;
+  color: var(--hazard);
+}
 
 /* bottom */
 .bottom-row { display:flex; gap: 10mm; align-items:stretch; margin-top: 4mm; }
@@ -149,7 +154,7 @@ footer.sheetfoot span.hz { color: var(--hazard); }
     <div class="titleblock">
       <p class="eyebrow">Owner Checklist</p>
       <h1 class="doc-h">Before Your Demolition</h1>
-      <p class="summary">What needs to be sorted before works can commence &mdash; keep this handy.</p>
+      <p class="summary">Lead times shown below &mdash; work backward from them to know when to book.</p>
     </div>
   </div>
 
@@ -161,13 +166,13 @@ footer.sheetfoot span.hz { color: var(--hazard); }
       <div class="check-item">
         <div class="checkbox"></div>
         <div class="check-item__body">
-          <div class="check-item__label">Power abolishment <span class="detail">&mdash; refer to how-to guide if required</span></div>
+          <div class="check-item__label">Power abolishment <span class="detail">&mdash; refer to how-to guide if required</span><span class="leadtime">Allow 3&ndash;4 weeks</span></div>
         </div>
       </div>
       <div class="check-item">
         <div class="checkbox"></div>
         <div class="check-item__body">
-          <div class="check-item__label">Gas abolishment <span class="detail">&mdash; refer to how-to guide if required</span></div>
+          <div class="check-item__label">Gas abolishment <span class="detail">&mdash; refer to how-to guide if required</span><span class="leadtime">Allow 6&ndash;8 weeks if metered</span></div>
         </div>
       </div>
       <div class="subnote">If gas bottles are present, ensure they're collected.</div>
